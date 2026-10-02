@@ -211,7 +211,7 @@ the kubelet generates:
 
 Because the kubelet writes hostnames verbatim, which lookups resolve is decided by what the user lists. To make an alias resolve both with and without the trailing dot, list both names, bare name first.
 
-Measured on glibc 2.31 and 2.41 and musl 1.1.24 and 1.2.6 for forward lookups, and on glibc 2.41 and musl 1.2.6 for reverse lookups (scripts and raw output: https://github.com/MU5A/hostaliases-fqdn-evidence):
+Measured on glibc 2.31 and 2.41 and musl 1.1.24 and 1.2.6 for forward lookups, and on glibc 2.41 and musl 1.2.6 for reverse lookups. Forward lookups were also measured from Node.js 22 (`dns.lookup`) and OpenJDK 21 (`InetAddress`) on glibc and musl, with identical results (scripts and raw output: https://github.com/MU5A/hostaliases-fqdn-evidence):
 
 | `hostnames` in the Pod | Line in `/etc/hosts` | Lookup `name` | Lookup `name.` | Reverse lookup returns |
 |---|---|---|---|---|
